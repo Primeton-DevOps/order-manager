@@ -288,4 +288,32 @@ public class CsResource extends HashMap<String, Object> {
 		return target;
 	}
 	
+	/**
+	 * 
+	 * @param type
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	public <T extends CsResource> T toTarget(String type) {
+		if (null == type || type.trim().isEmpty()) {
+			return null;
+		}
+		if (CsType.PM.name().equalsIgnoreCase(type)) {
+			PmResource resource = new PmResource();
+			resource.putAll(this);
+			return (T) resource;
+		}
+		if (CsType.VM.name().equalsIgnoreCase(type)) {
+			VmResource resource = new VmResource();
+			resource.putAll(this);
+			return (T) resource;
+		}
+		if (CsType.Container.name().equalsIgnoreCase(type)) {
+			ContainerResource resource = new ContainerResource();
+			resource.putAll(this);
+			return (T) resource;
+		}
+		throw new IllegalArgumentException(String.format("Illegal CLOUD_SERVICE_TYPE '%s'.", type));
+	}
+	
 }
