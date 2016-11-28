@@ -1,2 +1,1 @@
-# order-manager
-Cloud service order manager
+# Cloud Service Order Manager
