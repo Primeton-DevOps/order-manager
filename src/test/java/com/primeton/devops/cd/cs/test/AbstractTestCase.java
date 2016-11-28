@@ -46,7 +46,7 @@ public abstract class AbstractTestCase {
 	 * @return
 	 * @throws FileNotFoundException
 	 */
-	protected InputStream getTemplateAsStream(String filePath) throws FileNotFoundException {
+	protected InputStream getResourceAsStream(String filePath) throws FileNotFoundException {
 		if (StringUtils.isBlank(filePath)) {
 			return null;
 		}
@@ -61,22 +61,33 @@ public abstract class AbstractTestCase {
 	/**
 	 * 
 	 * @param filePath
+	 * @param encoding
 	 * @return
 	 * @throws FileNotFoundException
 	 */
-	protected String getTemplateAsString(String filePath) throws FileNotFoundException {
-		InputStream in = getTemplateAsStream(filePath);
+	protected String getResourceAsString(String filePath, String encoding) throws FileNotFoundException {
+		InputStream in = getResourceAsStream(filePath);
 		if (null == in) {
 			return null;
 		}
 		try {
-			return IOUtils.toString(in, Charset.forName("utf-8")); //$NON-NLS-1$
+			return IOUtils.toString(in, Charset.forName(null == encoding || encoding.trim().isEmpty() ? "utf-8" : encoding)); //$NON-NLS-1$
 		} catch (IOException e) {
 			e.printStackTrace();
 		} finally {
 			IOUtils.closeQuietly(in);
 		}
 		return null;
+	}
+	
+	/**
+	 * 
+	 * @param filePath
+	 * @return
+	 * @throws FileNotFoundException
+	 */
+	protected String getResourceAsString(String filePath) throws FileNotFoundException {
+		return getResourceAsString(filePath, null);
 	}
 
 }
