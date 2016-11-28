@@ -8,10 +8,13 @@
 
 package com.primeton.devops.cd.cs.test;
 
+import com.primeton.devops.cd.cs.ContainerResource;
 import com.primeton.devops.cd.cs.JsonUtil;
 import com.primeton.devops.cd.cs.OrderItem;
+import com.primeton.devops.cd.cs.PmResource;
 import com.primeton.devops.cd.cs.ServiceOrder;
 import com.primeton.devops.cd.cs.ServiceType;
+import com.primeton.devops.cd.cs.VmResource;
 
 /**
  * ServiceOrderTestCase.
@@ -37,7 +40,7 @@ public class ServiceOrderTestCase extends AbstractTestCase {
 		// 设置服务类型
 		item1.setResourceType(ServiceType.VM.name());
 		// 设置资源数量(虚拟机数量)
-		item1.setResourceSize(3);
+		item1.setResourceSize(2);
 		// 添加资源描述(OS, Flavor, etc)
 		item1.addAttribute("osname", "CentOS-7.2-x86_64"); //$NON-NLS-1$ //$NON-NLS-2$
 		item1.addAttribute("model", "tiny"); //$NON-NLS-1$ //$NON-NLS-2$
@@ -56,7 +59,7 @@ public class ServiceOrderTestCase extends AbstractTestCase {
 		order.addItem(item2);
 		
 		item2.setAggregateName("dev"); //$NON-NLS-1$
-		item2.setResourceType(ServiceType.VM.name());
+		item2.setResourceType(ServiceType.PM.name());
 		item2.setResourceSize(2);
 		
 		item2.addAttribute("osname", "Ubuntu-16.04-x86_64"); //$NON-NLS-1$ //$NON-NLS-2$
@@ -107,8 +110,98 @@ public class ServiceOrderTestCase extends AbstractTestCase {
 		
 		String json = JsonUtil.toJson(order, true);
 		System.err.println(json);
+		System.err.println("\n\n");
 		
+		//
 		// 审批之后
+		//
+		
+		VmResource resource11 = new VmResource();
+		item1.addResource(resource11);
+		
+		resource11.setHostDomain("project1.devops.region");
+		resource11.setHostModel("tiny");
+		resource11.setHostName("uuid");
+		resource11.setIpAddress("192.168.2.23");
+		resource11.setMacAddress("02:79:60:0c:3e:16");
+		resource11.setOsUser("zhangsan");
+		resource11.setOsPass("devops@cloud.com");
+		resource11.setRootPass("devops@cloud.com");
+		
+		VmResource resource12 = new VmResource();
+		item1.addResource(resource12);
+		
+		resource12.setHostDomain("project1.devops.region");
+		resource12.setHostModel("tiny");
+		resource12.setHostName("uuid");
+		resource12.setIpAddress("192.168.2.24");
+		resource12.setMacAddress("02:79:60:0c:3e:17");
+		resource12.setOsUser("zhangsan");
+		resource12.setOsPass("devops@cloud.com");
+		resource12.setRootPass("devops@cloud.com");
+		
+		//
+
+		PmResource resource21 = new PmResource();
+		item2.addResource(resource21);
+		
+		resource21.setHostDomain("project1.devops.region");
+		resource21.setHostModel("tiny");
+		resource21.setHostName("uuid");
+		resource21.setIpAddress("192.168.2.23");
+		resource21.setMacAddress("02:79:60:0c:3e:16");
+		resource21.setOsUser("zhangsan");
+		resource21.setOsPass("devops@cloud.com");
+		resource21.setRootPass("devops@cloud.com");
+		
+		PmResource resource22 = new PmResource();
+		item2.addResource(resource22);
+		
+		resource22.setHostDomain("project1.devops.region");
+		resource22.setHostModel("tiny");
+		resource22.setHostName("uuid");
+		resource22.setIpAddress("192.168.2.24");
+		resource22.setMacAddress("02:79:60:0c:3e:17");
+		resource22.setOsUser("zhangsan");
+		resource22.setOsPass("devops@cloud.com");
+		resource22.setRootPass("devops@cloud.com");
+		
+		PmResource resource31 = new PmResource();
+		item3.addResource(resource31);
+		
+		resource31.setHostDomain("project1.devops.region");
+		resource31.setHostModel("tiny");
+		resource31.setHostName("uuid");
+		resource31.setIpAddress("192.168.2.23");
+		resource31.setMacAddress("02:79:60:0c:3e:16");
+		resource31.setOsUser("zhangsan");
+		resource31.setOsPass("devops@cloud.com");
+		resource31.setRootPass("devops@cloud.com");
+		
+		PmResource resource32 = new PmResource();
+		item3.addResource(resource32);
+		
+		resource32.setHostDomain("project1.devops.region");
+		resource32.setHostModel("tiny");
+		resource32.setHostName("uuid");
+		resource32.setIpAddress("192.168.2.24");
+		resource32.setMacAddress("02:79:60:0c:3e:17");
+		resource32.setOsUser("zhangsan");
+		resource32.setOsPass("devops@cloud.com");
+		resource32.setRootPass("devops@cloud.com");
+		
+		ContainerResource resource41 = new ContainerResource();
+		item4.addResource(resource41);
+		
+		resource41.setCgroup("default");
+		resource41.setDescription("Kubernetes");
+		resource41.setFlavor("4C16G");
+		resource41.setNamespace("product-region-123456");
+		resource41.setRegion("shanghai");
+		
+		json = JsonUtil.toJson(order, true);
+		System.out.println(json);
+		System.out.println("/n/n");
 	}
 
 }

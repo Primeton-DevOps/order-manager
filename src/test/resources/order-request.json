@@ -1,0 +1,74 @@
+{
+  "items" : [ {
+    "aggregateName" : "dev",
+    "resourceType" : "VM",
+    "resourceSize" : 3,
+    "attributes" : {
+      "ospass" : "devops@cloud.com",
+      "description" : "紧急！紧急！紧急！！！重要的事说三遍！！！",
+      "model" : "tiny",
+      "osuser" : "zhangsan",
+      "storage" : "100GB",
+      "osname" : "CentOS-7.2-x86_64"
+    },
+    "advances" : {
+      "subnet" : "11.11.11.255",
+      "nettype" : "flat",
+      "cgroup" : "default",
+      "region" : "shanghai"
+    },
+    "resources" : [ ]
+  }, {
+    "aggregateName" : "dev",
+    "resourceType" : "VM",
+    "resourceSize" : 2,
+    "attributes" : {
+      "ospass" : "devops@cloud.com",
+      "description" : "希望申请到新采购的那批x86物理机！！！",
+      "model" : "normal",
+      "osuser" : "lisi",
+      "storage" : "200GB",
+      "osname" : "Ubuntu-16.04-x86_64"
+    },
+    "advances" : {
+      "subnet" : "11.11.11.255",
+      "nettype" : "flat",
+      "cgroup" : "default",
+      "region" : "shanghai"
+    },
+    "resources" : [ ]
+  }, {
+    "aggregateName" : "product",
+    "resourceType" : "PM",
+    "resourceSize" : 5,
+    "attributes" : {
+      "ospass" : "devops@cloud.com",
+      "description" : "希望申请到新采购的那批x86物理机！！！",
+      "model" : "normal",
+      "osuser" : "lisi",
+      "storage" : "200GB",
+      "osname" : "CentOS-7.2-x86_64"
+    },
+    "advances" : {
+      "subnet" : "11.11.11.255",
+      "nettype" : "flat",
+      "cgroup" : "default",
+      "region" : "shanghai"
+    },
+    "resources" : [ ]
+  }, {
+    "aggregateName" : "product",
+    "resourceType" : "Container",
+    "resourceSize" : 1,
+    "attributes" : {
+      "flavor" : "4C16G",
+      "namespace" : "product-region-123456",
+      "description" : "OpenShift ..."
+    },
+    "advances" : {
+      "region" : "beijing",
+      "cgroup" : "default"
+    },
+    "resources" : [ ]
+  } ]
+}
