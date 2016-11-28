@@ -2,7 +2,7 @@
   "items" : [ {
     "aggregateName" : "dev",
     "resourceType" : "VM",
-    "resourceSize" : 3,
+    "resourceSize" : 2,
     "attributes" : {
       "ospass" : "devops@cloud.com",
       "description" : "紧急！紧急！紧急！！！重要的事说三遍！！！",
@@ -20,7 +20,7 @@
     "resources" : [ ]
   }, {
     "aggregateName" : "dev",
-    "resourceType" : "VM",
+    "resourceType" : "PM",
     "resourceSize" : 2,
     "attributes" : {
       "ospass" : "devops@cloud.com",

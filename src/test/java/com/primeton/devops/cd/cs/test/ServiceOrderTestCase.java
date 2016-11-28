@@ -201,7 +201,7 @@ public class ServiceOrderTestCase extends AbstractTestCase {
 		
 		json = JsonUtil.toJson(order, true);
 		System.out.println(json);
-		System.out.println("/n/n");
+		System.out.println("\n\n");
 	}
 
 }
