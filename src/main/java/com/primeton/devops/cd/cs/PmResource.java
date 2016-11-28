@@ -33,7 +33,7 @@ public class PmResource extends CsResource {
 	 * @param type
 	 */
 	public PmResource() {
-		super(ServiceType.PM.name());
+		super(CsType.PM.name());
 	}
 
 	/**

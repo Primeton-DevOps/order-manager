@@ -33,7 +33,7 @@ public class VmResource extends CsResource {
 	 * @param type
 	 */
 	public VmResource() {
-		super(ServiceType.VM.name());
+		super(CsType.VM.name());
 	}
 
 	/**

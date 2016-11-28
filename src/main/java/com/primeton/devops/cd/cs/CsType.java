@@ -13,7 +13,7 @@ package com.primeton.devops.cd.cs;
  *
  * @author ZhongWen Li (mailto:lizw@primeton.com)
  */
-public enum ServiceType {
+public enum CsType {
 	
 	VM, PM, Container;
 

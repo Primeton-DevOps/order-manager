@@ -13,7 +13,7 @@ import com.primeton.devops.cd.cs.JsonUtil;
 import com.primeton.devops.cd.cs.OrderItem;
 import com.primeton.devops.cd.cs.PmResource;
 import com.primeton.devops.cd.cs.ServiceOrder;
-import com.primeton.devops.cd.cs.ServiceType;
+import com.primeton.devops.cd.cs.CsType;
 import com.primeton.devops.cd.cs.VmResource;
 
 /**
@@ -38,7 +38,7 @@ public class ServiceOrderTestCase extends AbstractTestCase {
 		// 设置所属环境
 		item1.setAggregateName("dev"); //$NON-NLS-1$
 		// 设置服务类型
-		item1.setResourceType(ServiceType.VM.name());
+		item1.setResourceType(CsType.VM.name());
 		// 设置资源数量(虚拟机数量)
 		item1.setResourceSize(2);
 		// 添加资源描述(OS, Flavor, etc)
@@ -59,7 +59,7 @@ public class ServiceOrderTestCase extends AbstractTestCase {
 		order.addItem(item2);
 		
 		item2.setAggregateName("dev"); //$NON-NLS-1$
-		item2.setResourceType(ServiceType.PM.name());
+		item2.setResourceType(CsType.PM.name());
 		item2.setResourceSize(2);
 		
 		item2.addAttribute("osname", "Ubuntu-16.04-x86_64"); //$NON-NLS-1$ //$NON-NLS-2$
@@ -79,7 +79,7 @@ public class ServiceOrderTestCase extends AbstractTestCase {
 		order.addItem(item3);
 		
 		item3.setAggregateName("product"); //$NON-NLS-1$
-		item3.setResourceType(ServiceType.PM.name());
+		item3.setResourceType(CsType.PM.name());
 		item3.setResourceSize(5);
 		
 		item3.addAttribute("osname", "CentOS-7.2-x86_64"); //$NON-NLS-1$ //$NON-NLS-2$
@@ -100,7 +100,7 @@ public class ServiceOrderTestCase extends AbstractTestCase {
 		
 		item4.setAggregateName("product"); //$NON-NLS-1$
 		item4.setResourceSize(1);
-		item4.setResourceType(ServiceType.Container.name());
+		item4.setResourceType(CsType.Container.name());
 		
 		item4.addAttribute("namespace", "product-region-123456"); //$NON-NLS-1$ //$NON-NLS-2$
 		item4.addAttribute("flavor", "4C16G"); //$NON-NLS-1$ //$NON-NLS-2$
