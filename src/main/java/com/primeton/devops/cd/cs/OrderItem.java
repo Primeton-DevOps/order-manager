@@ -25,7 +25,10 @@ public class OrderItem implements Serializable {
 	 * <code>serialVersionUID</code>
 	 */
 	private static final long serialVersionUID = 2622005805207017063L;
-
+	/**
+	 * 订单项所属环境类型(dev, test, stage, product, etc.)
+	 */
+	private String aggregateName;
 	/**
 	 * 资源类型（VM, PM, Container, etc.）
 	 */
@@ -40,6 +43,8 @@ public class OrderItem implements Serializable {
 	//private List<ItemAttribute> attributes;
 	private Map<String, Object> attributes; // value (基本类型 + string)
 	
+	private Map<String, Object> advances;
+	
 	/**
 	 * 云服务开通之后资源信息(VM, PM, Container, etc.)存储
 	 */
@@ -50,6 +55,20 @@ public class OrderItem implements Serializable {
 	 */
 	public OrderItem() {
 		super();
+	}
+
+	/**
+	 * @return Returns the aggregateName.
+	 */
+	public String getAggregateName() {
+		return aggregateName;
+	}
+
+	/**
+	 * @param aggregateName The aggregateName to set.
+	 */
+	public void setAggregateName(String aggregateName) {
+		this.aggregateName = aggregateName;
 	}
 
 	/**
@@ -98,41 +117,90 @@ public class OrderItem implements Serializable {
 	}
 	
 	/**
+	 * @return Returns the advances.
+	 */
+	public Map<String, Object> getAdvances() {
+		if (null == advances) {
+			advances = new HashMap<>();
+		}
+		return advances;
+	}
+
+	/**
+	 * @param advances The advances to set.
+	 */
+	public void setAdvances(Map<String, Object> advances) {
+		this.advances = advances;
+	}
+
+	/**
 	 * 
 	 * @param key
 	 * @param value
+	 * @param advance
+	 * @return
 	 */
-	public OrderItem addAttribute(String key, Object value) {
+	public OrderItem addAttribute(String key, Object value, boolean advance) {
 		if (null == key || 0 == key.trim().length()) {
 			return this;
 		}
-		getAttributes().put(key, value);
+		if (advance) {
+			getAdvances().put(key, value);
+		} else {
+			getAttributes().put(key, value);
+		}
 		return this;
 	}
 	
 	/**
 	 * 
 	 * @param key
+	 * @param value
+	 * @return
 	 */
-	public OrderItem removeAttribute(String key) {
+	public OrderItem addAttribute(String key, Object value) {
+		return addAttribute(key, value, false);
+	}
+	
+	/**
+	 * 
+	 * @param key
+	 * @param advance
+	 * @return
+	 */
+	public OrderItem removeAttribute(String key, boolean advance) {
 		if (null == key || 0 == key.trim().length()) {
 			return this;
 		}
-		getAttributes().remove(key);
+		if (advance) {
+			getAdvances().remove(key);
+		} else {
+			getAttributes().remove(key);
+		}
 		return this;
+	}
+	
+	/**
+	 * 
+	 * @param key
+	 * @return
+	 */
+	public OrderItem removeAttribute(String key) {
+		return removeAttribute(key, false);
 	}
 	
 	/**
 	 * 
 	 * @param key
 	 * @param defaultValue
+	 * @param advance
 	 * @return
 	 */
-	public Object getAttributeValue(String key, Object defaultValue) {
+	public Object getAttributeValue(String key, Object defaultValue, boolean advance) {
 		if (null == key || 0 == key.trim().length()) {
 			return defaultValue;
 		}
-		Object value = getAttributes().get(key);
+		Object value = advance ? getAdvances().get(key) : getAttributes().get(key);
 		return null == value ? defaultValue : value;
 	}
 	
@@ -142,8 +210,18 @@ public class OrderItem implements Serializable {
 	 * @param defaultValue
 	 * @return
 	 */
-	public String getAttributeStringValue(String key, String defaultValue) {
-		Object value = getAttributeValue(key, defaultValue);
+	public Object getAttributeValue(String key, Object defaultValue) {
+		return getAttributeValue(key, defaultValue, false);
+	}
+	
+	/**
+	 * 
+	 * @param key
+	 * @param defaultValue
+	 * @return
+	 */
+	public String getAttributeStringValue(String key, String defaultValue, boolean advance) {
+		Object value = getAttributeValue(key, defaultValue, advance);
 		if (null == value) {
 			return defaultValue;
 		}
@@ -153,20 +231,31 @@ public class OrderItem implements Serializable {
 	/**
 	 * 
 	 * @param key
+	 * @param defaultValue
+	 * @return
+	 */
+	public String getAttributeStringValue(String key, String defaultValue) {
+		return getAttributeStringValue(key, defaultValue, false);
+	}
+	
+	/**
+	 * 
+	 * @param key
 	 * @return
 	 */
 	public String getAttributeStringValue(String key) {
-		return getAttributeStringValue(key, null);
+		return getAttributeStringValue(key, null, false);
 	}
 
 	/**
 	 * 
 	 * @param key
 	 * @param defaultValue
+	 * @param advance
 	 * @return
 	 */
-	public long getAttributeLongValue(String key, long defaultValue) {
-		Object value = getAttributeValue(key, defaultValue);
+	public long getAttributeLongValue(String key, long defaultValue, boolean advance) {
+		Object value = getAttributeValue(key, defaultValue, advance);
 		if (null == value) {
 			return defaultValue;
 		}
@@ -176,20 +265,31 @@ public class OrderItem implements Serializable {
 	/**
 	 * 
 	 * @param key
+	 * @param defaultValue
+	 * @return
+	 */
+	public long getAttributeLongValue(String key, long defaultValue) {
+		return getAttributeLongValue(key, defaultValue, false);
+	}
+	
+	/**
+	 * 
+	 * @param key
 	 * @return
 	 */
 	public long getAttributeLongValue(String key) {
-		return getAttributeLongValue(key, 0L);
+		return getAttributeLongValue(key, 0L, false);
 	}
 	
 	/**
 	 * 
 	 * @param key
 	 * @param defaultValue
+	 * @param advance
 	 * @return
 	 */
-	public int getAttributeIntValue(String key, int defaultValue) {
-		Object value = getAttributeValue(key, defaultValue);
+	public int getAttributeIntValue(String key, int defaultValue, boolean advance) {
+		Object value = getAttributeValue(key, defaultValue, advance);
 		if (null == value) {
 			return defaultValue;
 		}
@@ -199,20 +299,31 @@ public class OrderItem implements Serializable {
 	/**
 	 * 
 	 * @param key
+	 * @param defaultValue
+	 * @return
+	 */
+	public int getAttributeIntValue(String key, int defaultValue) {
+		return getAttributeIntValue(key, defaultValue, false);
+	}
+	
+	/**
+	 * 
+	 * @param key
 	 * @return
 	 */
 	public int getAttributeIntValue(String key) {
-		return getAttributeIntValue(key, 0);
+		return getAttributeIntValue(key, 0, false);
 	}
 	
 	/**
 	 * 
 	 * @param key
 	 * @param defaultValue
+	 * @param advance
 	 * @return
 	 */
-	public byte getAttributeByteValue(String key, byte defaultValue) {
-		Object value = getAttributeValue(key, defaultValue);
+	public byte getAttributeByteValue(String key, byte defaultValue, boolean advance) {
+		Object value = getAttributeValue(key, defaultValue, advance);
 		if (null == value) {
 			return defaultValue;
 		}
@@ -222,20 +333,31 @@ public class OrderItem implements Serializable {
 	/**
 	 * 
 	 * @param key
+	 * @param defaultValue
+	 * @return
+	 */
+	public byte getAttributeByteValue(String key, byte defaultValue) {
+		return getAttributeByteValue(key, defaultValue, false);
+	}
+	
+	/**
+	 * 
+	 * @param key
 	 * @return
 	 */
 	public byte getAttributeByteValue(String key) {
-		return getAttributeByteValue(key, (byte)0);
+		return getAttributeByteValue(key, (byte)0, false);
 	}
 	
 	/**
 	 * 
 	 * @param key
 	 * @param defaultValue
+	 * @param advance
 	 * @return
 	 */
-	public float getAttributeFloatValue(String key, float defaultValue) {
-		Object value = getAttributeValue(key, defaultValue);
+	public float getAttributeFloatValue(String key, float defaultValue, boolean advance) {
+		Object value = getAttributeValue(key, defaultValue, advance);
 		if (null == value) {
 			return defaultValue;
 		}
@@ -245,20 +367,31 @@ public class OrderItem implements Serializable {
 	/**
 	 * 
 	 * @param key
+	 * @param defaultValue
+	 * @return
+	 */
+	public float getAttributeFloatValue(String key, float defaultValue) {
+		return getAttributeFloatValue(key, defaultValue, false);
+	}
+	
+	/**
+	 * 
+	 * @param key
 	 * @return
 	 */
 	public float getAttributeFloatValue(String key) {
-		return getAttributeFloatValue(key, 0F);
+		return getAttributeFloatValue(key, 0F, false);
 	}
 	
 	/**
 	 * 
 	 * @param key
 	 * @param defaultValue
+	 * @param advance
 	 * @return
 	 */
-	public double getAttributeDoubleValue(String key, double defaultValue) {
-		Object value = getAttributeValue(key, defaultValue);
+	public double getAttributeDoubleValue(String key, double defaultValue, boolean advance) {
+		Object value = getAttributeValue(key, defaultValue, advance);
 		if (null == value) {
 			return defaultValue;
 		}
@@ -268,10 +401,54 @@ public class OrderItem implements Serializable {
 	/**
 	 * 
 	 * @param key
+	 * @param defaultValue
+	 * @return
+	 */
+	public double getAttributeDoubleValue(String key, double defaultValue) {
+		return getAttributeDoubleValue(key, defaultValue, false);
+	}
+	
+	/**
+	 * 
+	 * @param key
 	 * @return
 	 */
 	public double getAttributeDoubleValue(String key) {
-		return getAttributeDoubleValue(key, 0D);
+		return getAttributeDoubleValue(key, 0D, false);
+	}
+	
+	/**
+	 * 
+	 * @param key
+	 * @param defaultValue
+	 * @param advance
+	 * @return
+	 */
+	public boolean getAttributeBooleanValue(String key, boolean defaultValue, boolean advance) {
+		Object value = getAttributeValue(key, defaultValue, advance);
+		if (null == value) {
+			return defaultValue;
+		}
+		return value instanceof Boolean ? (boolean)value : Boolean.parseBoolean(value.toString());
+	}
+	
+	/**
+	 * 
+	 * @param key
+	 * @param defaultValue
+	 * @return
+	 */
+	public boolean getAttributeBooleanValue(String key, boolean defaultValue) {
+		return getAttributeBooleanValue(key, defaultValue, false);
+	}
+	
+	/**
+	 * 
+	 * @param key
+	 * @return
+	 */
+	public boolean getAttributeBooleanValue(String key) {
+		return getAttributeBooleanValue(key, false, false);
 	}
 	
 	/**
@@ -322,8 +499,8 @@ public class OrderItem implements Serializable {
 	 */
 	@Override
 	public String toString() {
-		return "OrderItem [resourceType=" + resourceType + ", resourceSize=" + resourceSize + ", attributes="
-				+ attributes + ", resources=" + resources + "]";
+		return "OrderItem [aggregateName=" + aggregateName + ", resourceType=" + resourceType + ", resourceSize="
+				+ resourceSize + ", attributes=" + attributes + ", resources=" + resources + "]";
 	}
-	
+
 }
