@@ -70,5 +70,6 @@
       "cgroup" : "default"
     },
     "resources" : [ ]
-  } ]
+  } ],
+  "status" : "SUBMIT"
 }

@@ -23,8 +23,21 @@ public class ServiceOrder implements Serializable {
 	 * <code>serialVersionUID</code>
 	 */
 	private static final long serialVersionUID = 7627128131884039443L;
+	
+	public static final String STATUS_OPEND = "OPEND";
+	public static final String STATUS_SUBMIT = "SUBMIT";
+	public static final String STATUS_REJECT = "REJECT";
+	public static final String STATUS_DELETE = "DELETE";
 
 	private List<OrderItem> items;
+	
+	/**
+	 * @see {@link ServiceOrder#STATUS_OPEND} <br>
+	 * @see {@link ServiceOrder#STATUS_DELETE} <br>
+	 * @see {@link ServiceOrder#STATUS_SUBMIT} <br>
+	 * @see {@link ServiceOrder#STATUS_REJECT} <br>
+	 */
+	private String status;
 
 	/**
 	 * Default. <br>
@@ -33,6 +46,16 @@ public class ServiceOrder implements Serializable {
 		super();
 	}
 	
+	/**
+	 * @param items
+	 * @param status
+	 */
+	public ServiceOrder(List<OrderItem> items, String status) {
+		super();
+		this.items = items;
+		this.status = status;
+	}
+
 	/**
 	 * 
 	 * @param item
@@ -76,12 +99,26 @@ public class ServiceOrder implements Serializable {
 		this.items = items;
 	}
 
+	/**
+	 * @return Returns the status.
+	 */
+	public String getStatus() {
+		return status;
+	}
+
+	/**
+	 * @param status The status to set.
+	 */
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
-		return "ServiceOrder [items=" + items + "]";
+		return "ServiceOrder [items=" + items + ", status=" + status + "]";
 	}
-	
+
 }

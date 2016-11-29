@@ -130,5 +130,6 @@
       "cgroup" : "default",
       "region" : "shanghai"
     } ]
-  } ]
+  } ],
+  "status" : "OPEND"
 }

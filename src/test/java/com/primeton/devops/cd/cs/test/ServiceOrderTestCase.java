@@ -30,6 +30,7 @@ public class ServiceOrderTestCase extends AbstractTestCase {
 	public void test() throws Exception {
 		// 服务订单
 		ServiceOrder order = new ServiceOrder();
+		order.setStatus(ServiceOrder.STATUS_SUBMIT);
 		
 		// 订单项 - 虚拟机
 		OrderItem item1 = new OrderItem();
@@ -115,6 +116,8 @@ public class ServiceOrderTestCase extends AbstractTestCase {
 		//
 		// 审批之后
 		//
+		
+		order.setStatus(ServiceOrder.STATUS_OPEND);
 		
 		VmResource resource11 = new VmResource();
 		item1.addResource(resource11);
