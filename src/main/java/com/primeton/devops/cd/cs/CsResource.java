@@ -308,7 +308,7 @@ public class CsResource extends HashMap<String, Object> {
 			resource.putAll(this);
 			return (T) resource;
 		}
-		if (CsType.Container.name().equalsIgnoreCase(type)) {
+		if (CsType.CONTAINER.name().equalsIgnoreCase(type)) {
 			ContainerResource resource = new ContainerResource();
 			resource.putAll(this);
 			return (T) resource;

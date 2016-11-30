@@ -54,7 +54,7 @@ public class ResourceQueryTestCase extends AbstractTestCase {
 					pmResources.add(resource.toTarget(PmResource.class));
 				} else if (CsType.VM.name().equalsIgnoreCase(resource.getType())) {
 					vmResources.add(resource.toTarget(VmResource.class));
-				} else if (CsType.Container.name().equalsIgnoreCase(resource.getType())) {
+				} else if (CsType.CONTAINER.name().equalsIgnoreCase(resource.getType())) {
 					containerResources.add(resource.toTarget(ContainerResource.class));
 				}
 			}

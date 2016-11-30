@@ -15,6 +15,6 @@ package com.primeton.devops.cd.cs;
  */
 public enum CsType {
 	
-	VM, PM, Container;
+	VM, PM, CONTAINER;
 
 }

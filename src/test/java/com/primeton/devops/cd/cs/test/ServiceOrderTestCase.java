@@ -101,7 +101,7 @@ public class ServiceOrderTestCase extends AbstractTestCase {
 		
 		item4.setAggregateName("product"); //$NON-NLS-1$
 		item4.setResourceSize(1);
-		item4.setResourceType(CsType.Container.name());
+		item4.setResourceType(CsType.CONTAINER.name());
 		
 		item4.addAttribute("namespace", "product-region-123456"); //$NON-NLS-1$ //$NON-NLS-2$
 		item4.addAttribute("flavor", "4C16G"); //$NON-NLS-1$ //$NON-NLS-2$
@@ -205,6 +205,8 @@ public class ServiceOrderTestCase extends AbstractTestCase {
 		json = JsonUtil.toJson(order, true);
 		System.out.println(json);
 		System.out.println("\n\n");
+		
+		System.err.println(JsonUtil.toJson(order));
 	}
 
 }
