@@ -122,11 +122,11 @@ public class ServiceOrderTestCase extends AbstractTestCase {
 		VmResource resource11 = new VmResource();
 		item1.addResource(resource11);
 		
-		resource11.setHostDomain("project1.devops.region");
+		resource11.setHostDomain("domain11");
 		resource11.setHostModel("tiny");
 		resource11.setHostName("uuid");
-		resource11.setIpAddress("192.168.2.23");
-		resource11.setMacAddress("02:79:60:0c:3e:16");
+		resource11.setIpAddress("192.168.2.11");
+		resource11.setMacAddress("02:79:60:0c:3e:11");
 		resource11.setOsUser("zhangsan");
 		resource11.setOsPass("devops@cloud.com");
 		resource11.setRootPass("devops@cloud.com");
@@ -134,11 +134,11 @@ public class ServiceOrderTestCase extends AbstractTestCase {
 		VmResource resource12 = new VmResource();
 		item1.addResource(resource12);
 		
-		resource12.setHostDomain("project1.devops.region");
+		resource12.setHostDomain("domain12");
 		resource12.setHostModel("tiny");
 		resource12.setHostName("uuid");
-		resource12.setIpAddress("192.168.2.24");
-		resource12.setMacAddress("02:79:60:0c:3e:17");
+		resource12.setIpAddress("192.168.2.12");
+		resource12.setMacAddress("02:79:60:0c:3e:12");
 		resource12.setOsUser("zhangsan");
 		resource12.setOsPass("devops@cloud.com");
 		resource12.setRootPass("devops@cloud.com");
@@ -148,11 +148,11 @@ public class ServiceOrderTestCase extends AbstractTestCase {
 		PmResource resource21 = new PmResource();
 		item2.addResource(resource21);
 		
-		resource21.setHostDomain("project1.devops.region");
-		resource21.setHostModel("tiny");
+		resource21.setHostDomain("domain21");
+		resource21.setHostModel("normal");
 		resource21.setHostName("uuid");
-		resource21.setIpAddress("192.168.2.23");
-		resource21.setMacAddress("02:79:60:0c:3e:16");
+		resource21.setIpAddress("192.168.4.21");
+		resource21.setMacAddress("02:79:60:0c:4e:21");
 		resource21.setOsUser("zhangsan");
 		resource21.setOsPass("devops@cloud.com");
 		resource21.setRootPass("devops@cloud.com");
@@ -160,11 +160,11 @@ public class ServiceOrderTestCase extends AbstractTestCase {
 		PmResource resource22 = new PmResource();
 		item2.addResource(resource22);
 		
-		resource22.setHostDomain("project1.devops.region");
-		resource22.setHostModel("tiny");
+		resource22.setHostDomain("domain22");
+		resource22.setHostModel("normal");
 		resource22.setHostName("uuid");
-		resource22.setIpAddress("192.168.2.24");
-		resource22.setMacAddress("02:79:60:0c:3e:17");
+		resource22.setIpAddress("192.168.4.22");
+		resource22.setMacAddress("02:79:60:0c:4e:22");
 		resource22.setOsUser("zhangsan");
 		resource22.setOsPass("devops@cloud.com");
 		resource22.setRootPass("devops@cloud.com");
@@ -172,11 +172,11 @@ public class ServiceOrderTestCase extends AbstractTestCase {
 		PmResource resource31 = new PmResource();
 		item3.addResource(resource31);
 		
-		resource31.setHostDomain("project1.devops.region");
-		resource31.setHostModel("tiny");
+		resource31.setHostDomain("domain31");
+		resource31.setHostModel("big");
 		resource31.setHostName("uuid");
-		resource31.setIpAddress("192.168.2.23");
-		resource31.setMacAddress("02:79:60:0c:3e:16");
+		resource31.setIpAddress("192.168.2.31");
+		resource31.setMacAddress("02:79:60:0c:3e:31");
 		resource31.setOsUser("zhangsan");
 		resource31.setOsPass("devops@cloud.com");
 		resource31.setRootPass("devops@cloud.com");
@@ -184,11 +184,11 @@ public class ServiceOrderTestCase extends AbstractTestCase {
 		PmResource resource32 = new PmResource();
 		item3.addResource(resource32);
 		
-		resource32.setHostDomain("project1.devops.region");
-		resource32.setHostModel("tiny");
+		resource32.setHostDomain("domain32");
+		resource32.setHostModel("big");
 		resource32.setHostName("uuid");
-		resource32.setIpAddress("192.168.2.24");
-		resource32.setMacAddress("02:79:60:0c:3e:17");
+		resource32.setIpAddress("192.168.2.32");
+		resource32.setMacAddress("02:79:60:0c:3e:32");
 		resource32.setOsUser("zhangsan");
 		resource32.setOsPass("devops@cloud.com");
 		resource32.setRootPass("devops@cloud.com");

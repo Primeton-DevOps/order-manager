@@ -58,7 +58,7 @@
     "resources" : [ ]
   }, {
     "aggregateName" : "product",
-    "resourceType" : "Container",
+    "resourceType" : "CONTAINER",
     "resourceSize" : 1,
     "attributes" : {
       "flavor" : "4C16G",

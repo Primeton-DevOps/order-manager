@@ -20,18 +20,18 @@
     "resources" : [ {
       "hostName" : "uuid",
       "osPass" : "devops@cloud.com",
-      "macAddress" : "02:79:60:0c:3e:16",
-      "hostDomain" : "project1.devops.region",
-      "ipAddress" : "192.168.2.23",
+      "macAddress" : "02:79:60:0c:3e:11",
+      "hostDomain" : "domain11",
+      "ipAddress" : "192.168.2.11",
       "osUser" : "zhangsan",
       "hostModel" : "tiny",
       "rootPass" : "devops@cloud.com"
     }, {
       "hostName" : "uuid",
       "osPass" : "devops@cloud.com",
-      "macAddress" : "02:79:60:0c:3e:17",
-      "hostDomain" : "project1.devops.region",
-      "ipAddress" : "192.168.2.24",
+      "macAddress" : "02:79:60:0c:3e:12",
+      "hostDomain" : "domain12",
+      "ipAddress" : "192.168.2.12",
       "osUser" : "zhangsan",
       "hostModel" : "tiny",
       "rootPass" : "devops@cloud.com"
@@ -57,20 +57,20 @@
     "resources" : [ {
       "hostName" : "uuid",
       "osPass" : "devops@cloud.com",
-      "macAddress" : "02:79:60:0c:3e:16",
-      "hostDomain" : "project1.devops.region",
-      "ipAddress" : "192.168.2.23",
+      "macAddress" : "02:79:60:0c:4e:21",
+      "hostDomain" : "domain21",
+      "ipAddress" : "192.168.4.21",
       "osUser" : "zhangsan",
-      "hostModel" : "tiny",
+      "hostModel" : "normal",
       "rootPass" : "devops@cloud.com"
     }, {
       "hostName" : "uuid",
       "osPass" : "devops@cloud.com",
-      "macAddress" : "02:79:60:0c:3e:17",
-      "hostDomain" : "project1.devops.region",
-      "ipAddress" : "192.168.2.24",
+      "macAddress" : "02:79:60:0c:4e:22",
+      "hostDomain" : "domain22",
+      "ipAddress" : "192.168.4.22",
       "osUser" : "zhangsan",
-      "hostModel" : "tiny",
+      "hostModel" : "normal",
       "rootPass" : "devops@cloud.com"
     } ]
   }, {
@@ -94,25 +94,25 @@
     "resources" : [ {
       "hostName" : "uuid",
       "osPass" : "devops@cloud.com",
-      "macAddress" : "02:79:60:0c:3e:16",
-      "hostDomain" : "project1.devops.region",
-      "ipAddress" : "192.168.2.23",
+      "macAddress" : "02:79:60:0c:3e:31",
+      "hostDomain" : "domain31",
+      "ipAddress" : "192.168.2.31",
       "osUser" : "zhangsan",
-      "hostModel" : "tiny",
+      "hostModel" : "big",
       "rootPass" : "devops@cloud.com"
     }, {
       "hostName" : "uuid",
       "osPass" : "devops@cloud.com",
-      "macAddress" : "02:79:60:0c:3e:17",
-      "hostDomain" : "project1.devops.region",
-      "ipAddress" : "192.168.2.24",
+      "macAddress" : "02:79:60:0c:3e:32",
+      "hostDomain" : "domain32",
+      "ipAddress" : "192.168.2.32",
       "osUser" : "zhangsan",
-      "hostModel" : "tiny",
+      "hostModel" : "big",
       "rootPass" : "devops@cloud.com"
     } ]
   }, {
     "aggregateName" : "product",
-    "resourceType" : "Container",
+    "resourceType" : "CONTAINER",
     "resourceSize" : 1,
     "attributes" : {
       "flavor" : "4C16G",
