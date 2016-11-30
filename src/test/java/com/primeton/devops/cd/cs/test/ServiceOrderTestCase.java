@@ -36,8 +36,6 @@ public class ServiceOrderTestCase extends AbstractTestCase {
 		OrderItem item1 = new OrderItem();
 		order.addItem(item1);
 		
-		// 设置所属环境
-		item1.setAggregateName("dev"); //$NON-NLS-1$
 		// 设置服务类型
 		item1.setResourceType(CsType.VM.name());
 		// 设置资源数量(虚拟机数量)
@@ -59,7 +57,6 @@ public class ServiceOrderTestCase extends AbstractTestCase {
 		OrderItem item2 = new OrderItem();
 		order.addItem(item2);
 		
-		item2.setAggregateName("dev"); //$NON-NLS-1$
 		item2.setResourceType(CsType.PM.name());
 		item2.setResourceSize(2);
 		
@@ -79,7 +76,6 @@ public class ServiceOrderTestCase extends AbstractTestCase {
 		OrderItem item3 = new OrderItem();
 		order.addItem(item3);
 		
-		item3.setAggregateName("product"); //$NON-NLS-1$
 		item3.setResourceType(CsType.PM.name());
 		item3.setResourceSize(5);
 		
@@ -99,7 +95,6 @@ public class ServiceOrderTestCase extends AbstractTestCase {
 		OrderItem item4 = new OrderItem();
 		order.addItem(item4);
 		
-		item4.setAggregateName("product"); //$NON-NLS-1$
 		item4.setResourceSize(1);
 		item4.setResourceType(CsType.CONTAINER.name());
 		

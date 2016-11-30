@@ -1,6 +1,5 @@
 {
   "items" : [ {
-    "aggregateName" : "dev",
     "resourceType" : "VM",
     "resourceSize" : 2,
     "attributes" : {
@@ -37,7 +36,6 @@
       "rootPass" : "devops@cloud.com"
     } ]
   }, {
-    "aggregateName" : "dev",
     "resourceType" : "PM",
     "resourceSize" : 2,
     "attributes" : {
@@ -74,7 +72,6 @@
       "rootPass" : "devops@cloud.com"
     } ]
   }, {
-    "aggregateName" : "product",
     "resourceType" : "PM",
     "resourceSize" : 5,
     "attributes" : {
@@ -111,7 +108,6 @@
       "rootPass" : "devops@cloud.com"
     } ]
   }, {
-    "aggregateName" : "product",
     "resourceType" : "CONTAINER",
     "resourceSize" : 1,
     "attributes" : {

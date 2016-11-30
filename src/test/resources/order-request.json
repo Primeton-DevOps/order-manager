@@ -1,6 +1,5 @@
 {
   "items" : [ {
-    "aggregateName" : "dev",
     "resourceType" : "VM",
     "resourceSize" : 2,
     "attributes" : {
@@ -19,7 +18,6 @@
     },
     "resources" : [ ]
   }, {
-    "aggregateName" : "dev",
     "resourceType" : "PM",
     "resourceSize" : 2,
     "attributes" : {
@@ -38,7 +36,6 @@
     },
     "resources" : [ ]
   }, {
-    "aggregateName" : "product",
     "resourceType" : "PM",
     "resourceSize" : 5,
     "attributes" : {
@@ -57,7 +54,6 @@
     },
     "resources" : [ ]
   }, {
-    "aggregateName" : "product",
     "resourceType" : "CONTAINER",
     "resourceSize" : 1,
     "attributes" : {

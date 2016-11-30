@@ -25,18 +25,17 @@ public class OrderItem implements Serializable {
 	 * <code>serialVersionUID</code>
 	 */
 	private static final long serialVersionUID = 2622005805207017063L;
-	/**
-	 * 订单项所属环境类型(dev, test, stage, product, etc.)
-	 */
-	private String aggregateName;
+
 	/**
 	 * 资源类型（VM, PM, Container, etc.）
 	 */
 	private String resourceType;
+	
 	/**
 	 * 资源数量
 	 */
 	private int resourceSize;
+	
 	/**
 	 * 资源属性(OS, 用户, 密码, 存储, etc.)
 	 */
@@ -55,20 +54,6 @@ public class OrderItem implements Serializable {
 	 */
 	public OrderItem() {
 		super();
-	}
-
-	/**
-	 * @return Returns the aggregateName.
-	 */
-	public String getAggregateName() {
-		return aggregateName;
-	}
-
-	/**
-	 * @param aggregateName The aggregateName to set.
-	 */
-	public void setAggregateName(String aggregateName) {
-		this.aggregateName = aggregateName;
 	}
 
 	/**
@@ -499,8 +484,8 @@ public class OrderItem implements Serializable {
 	 */
 	@Override
 	public String toString() {
-		return "OrderItem [aggregateName=" + aggregateName + ", resourceType=" + resourceType + ", resourceSize="
-				+ resourceSize + ", attributes=" + attributes + ", resources=" + resources + "]";
+		return "OrderItem [resourceType=" + resourceType + ", resourceSize=" + resourceSize + ", attributes="
+				+ attributes + ", advances=" + advances + ", resources=" + resources + "]";
 	}
 
 }
