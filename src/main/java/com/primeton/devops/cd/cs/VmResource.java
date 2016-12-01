@@ -28,6 +28,7 @@ public class VmResource extends CsResource {
 	public static final String OS_USER = "osUser";
 	public static final String OS_PASS = "osPass";
 	public static final String ROOT_PASS = "rootPass";
+	public static final String OS_NAME = "osName";
 	
 	/**
 	 * @param type
@@ -162,6 +163,22 @@ public class VmResource extends CsResource {
 	 */
 	public void setRootPass(String pass) {
 		setValue(ROOT_PASS, pass);
+	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public String getOsName() {
+		return getStringValue(OS_NAME);
+	}
+	
+	/**
+	 * 
+	 * @param osName
+	 */
+	public void setOsName(String osName) {
+		setValue(OS_NAME, osName);
 	}
 	
 }
