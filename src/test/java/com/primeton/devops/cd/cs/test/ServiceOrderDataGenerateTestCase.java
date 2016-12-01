@@ -16,6 +16,7 @@ import com.primeton.devops.cd.cs.JsonUtil;
 import com.primeton.devops.cd.cs.OrderItem;
 import com.primeton.devops.cd.cs.PmResource;
 import com.primeton.devops.cd.cs.ServiceOrder;
+import com.primeton.devops.cd.cs.VmResource;
 
 /**
  * ServiceOrderTestCase.
@@ -211,7 +212,7 @@ public class ServiceOrderDataGenerateTestCase extends AbstractTestCase {
 		
 		order.setStatus(ServiceOrder.STATUS_OPEND);
 		
-		PmResource resource11 = new PmResource();
+		VmResource resource11 = new VmResource();
 		item1.addResource(resource11);
 		
 		resource11.setHostDomain("domain11");
@@ -224,7 +225,7 @@ public class ServiceOrderDataGenerateTestCase extends AbstractTestCase {
 		resource11.setOsPass("devops@cloud.com");
 		resource11.setRootPass("devops@cloud.com");
 		
-		PmResource resource12 = new PmResource();
+		VmResource resource12 = new VmResource();
 		item1.addResource(resource12);
 		
 		resource12.setHostDomain("domain12");
