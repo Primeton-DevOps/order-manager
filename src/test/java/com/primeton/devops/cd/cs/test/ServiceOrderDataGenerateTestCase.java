@@ -10,6 +10,7 @@ package com.primeton.devops.cd.cs.test;
 
 import org.junit.Test;
 
+import com.primeton.devops.cd.cs.ContainerResource;
 import com.primeton.devops.cd.cs.CsType;
 import com.primeton.devops.cd.cs.JsonUtil;
 import com.primeton.devops.cd.cs.OrderItem;
@@ -263,6 +264,54 @@ public class ServiceOrderDataGenerateTestCase extends AbstractTestCase {
 		resource22.setOsUser("zhangsan");
 		resource22.setOsPass("devops@cloud.com");
 		resource22.setRootPass("devops@cloud.com");
+		
+		json = JsonUtil.toJson(order, true);
+		System.out.println(json);
+		System.out.println("\n\n");
+		
+		System.err.println(JsonUtil.toJson(order));
+	}
+	
+	/**
+	 * 
+	 * @throws Exception
+	 */
+	@Test
+	public void test3() throws Exception {
+		// 服务订单
+		ServiceOrder order = new ServiceOrder();
+		order.setStatus(ServiceOrder.STATUS_SUBMIT);
+		
+		OrderItem item1 = new OrderItem();
+		order.addItem(item1);
+		
+		item1.setResourceSize(1);
+		item1.setResourceType(CsType.CONTAINER.name());
+		
+		item1.addAttribute("namespace", "product-region-123456"); //$NON-NLS-1$ //$NON-NLS-2$
+		item1.addAttribute("flavor", "4C16G"); //$NON-NLS-1$ //$NON-NLS-2$
+		item1.addAttribute("description", "OpenShift ..."); //$NON-NLS-1$ //$NON-NLS-2$
+		item1.addAttribute("region", "beijing", true); //$NON-NLS-1$ //$NON-NLS-2$
+		item1.addAttribute("cgroup", "default", true); //$NON-NLS-1$ //$NON-NLS-2$
+		
+		String json = JsonUtil.toJson(order, true);
+		System.err.println(json);
+		System.err.println("\n\n");
+		
+		//
+		// 审批之后
+		//
+		
+		order.setStatus(ServiceOrder.STATUS_OPEND);
+		
+		ContainerResource resource11 = new ContainerResource();
+		item1.addResource(resource11);
+		
+		resource11.setCgroup("default");
+		resource11.setDescription("Kubernetes");
+		resource11.setFlavor("4C16G");
+		resource11.setNamespace("product-region-123456");
+		resource11.setRegion("shanghai");
 		
 		json = JsonUtil.toJson(order, true);
 		System.out.println(json);
